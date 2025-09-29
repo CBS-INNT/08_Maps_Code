@@ -1,7 +1,7 @@
 import * as Location from "expo-location";
-import React, { useState, useCallback } from "react";
-import { View, ActivityIndicator } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useState, useCallback } from "react";
+import { ActivityIndicator } from "react-native";
+import { View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
@@ -16,6 +16,7 @@ export default function Map() {
     longitudeDelta: 0.0421,
   });
   const [loading, setLoading] = useState(true);
+  
   const styles = GlobalStyles.map;
 
   // Henter markører fra AsyncStorage
@@ -64,14 +65,14 @@ export default function Map() {
   // Loader-indikator mens data hentes
   if (loading) {
     return (
-      <SafeAreaView style={styles.loadingContainer}>
+      <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" />
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <MapView
         style={styles.map}
         region={region} // styrer kortets position
@@ -102,6 +103,6 @@ export default function Map() {
           />
         ))}
       </MapView>
-    </SafeAreaView>
+    </View>
   );
 }

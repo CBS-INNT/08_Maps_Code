@@ -64,7 +64,7 @@ export default function Home({ navigation }) {
           style={styles.input}
           value={latitude}
           onChangeText={setLatitude}
-          placeholder="latitude"
+          placeholder="latitude (-90 to 90)"
           keyboardType="decimal-pad"
           returnKeyType="next"
         />
@@ -72,7 +72,7 @@ export default function Home({ navigation }) {
           style={styles.input}
           value={longitude}
           onChangeText={setLongitude}
-          placeholder="longitude"
+          placeholder="longitude (-180 to 180)"
           keyboardType="decimal-pad"
         />
 
